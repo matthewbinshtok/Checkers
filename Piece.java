@@ -1,14 +1,10 @@
 public class Piece {
     
-    //private String _type;
     private String _side;
-    private ArrayList() moves;
-    private int _position;
 
-    public Piece( String side, int position ){
+    public Piece( String side ){
 	_side = side;
-	_position = position;
-	updateMoves();
+	//updateMoves();
     }
 
     // Chess Constructor
@@ -23,9 +19,18 @@ public class Piece {
 	return true;
     }
 
-    public boolean moveTo( int position ){
-	_position = position;
-	return true;
+    // public boolean moveTo( int position ){
+    // 	_position = position;
+    // 	return true;
+    // }
+
+    public String toString(){
+	return _side;
+    }
+
+    public static void main( String[] args ){
+	// Piece bob = new Piece("black");
+	// System.out.println(bob);
     }
 
 }//end class
