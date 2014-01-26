@@ -20,11 +20,11 @@ public class Board {
 		    squareCounter++;
 		}
 		else if ((row+square)%2 == 0) {
-		    board[row][square] = "WHITE";
+		    board[row][square] = "BLACK";
 		    squareCounter++;
 		}
 		else{
-		    board[row][square] = "BLACK";
+		    board[row][square] = "WHITE";
 		    squareCounter++;
 		}
 		
@@ -57,7 +57,9 @@ public class Board {
 
     public void getPieces(){
 	for (int i = 0; i < pieces.size(); i++){
-	    System.out.println(pieces.get(i));
+	    Piece temp = pieces.get(i);
+	    System.out.println(temp);
+	    System.out.println(temp.updateMoves(board));
 	}
     }
 
