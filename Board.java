@@ -6,25 +6,26 @@ public class Board {
     ArrayList<Piece> pieces = new ArrayList<Piece>();
 
     public Board(){
-	int initCounter = 0;
+	int squareCounter = 0;
 	for (int row = 0; row < 8; row++){
 	    for (int square = 0; square < 8; square++){
-		if (initCounter < 12 && (row+square)%2 == 0){
+		if (squareCounter < 24 && (row+square)%2 == 0){
 		    board[row][square] = "1";
-		    pieces.add(new Piece("white"));
-		    initCounter++;
+		    pieces.add(new Piece("red",(row+1),(square+1)));
+		    squareCounter++;
 		}
-		else if (initCounter >= 20 && (row+square)%2 == 0){
+		else if (squareCounter >= 40 && (row+square)%2 == 0){
 		    board[row][square] = "2";
-		    pieces.add(new Piece("black"));
-		    initCounter++;
+		    pieces.add(new Piece("black",(row+1),(square+1)));
+		    squareCounter++;
 		}
-		else if ((row+square)%2 == 1) {
+		else if ((row+square)%2 == 0) {
 		    board[row][square] = "WHITE";
+		    squareCounter++;
 		}
 		else{
 		    board[row][square] = "BLACK";
-		    initCounter++;
+		    squareCounter++;
 		}
 		
 	    }
@@ -54,11 +55,16 @@ public class Board {
 	System.out.println(boardStr);
     }
 
+    public void getPieces(){
+	for (int i = 0; i < pieces.size(); i++){
+	    System.out.println(pieces.get(i));
+	}
+    }
+
     public static void main( String[] args ){
 	Board test = new Board();
 	test.toBoard();
-	// Object[][] bored = test.board;
-	// printBoard(bored);
+	test.getPieces();
     }
 
 }//end class
