@@ -9,14 +9,12 @@ public class Piece {
     public Piece( String side ){
 	_side = side;
 	moves = new ArrayList<Coordinate>();
-	//updateMoves();
     }
 
     public Piece( String side, int x, int y ){
 	_side = side;
 	_position = new Coordinate(x,y);
 	moves = new ArrayList<Coordinate>();
-	//updateMoves();
     }
 
     public ArrayList updateMoves( String[][] setup ){
@@ -44,6 +42,21 @@ public class Piece {
 	return _side + " " + _position;
     }
 
+    public String getSide(){
+	return _side;
+    }
+
+    public ArrayList<Coordinate> getMoves(){
+	return moves;
+    }
+    
+    public Coordinate getPosition(){
+	return _position;
+    }
+
+    public boolean hasMoves(){
+	return moves.size() != 0;
+    }
 
 }//end class
 	

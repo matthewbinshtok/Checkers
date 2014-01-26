@@ -30,6 +30,9 @@ public class Board {
 		
 	    }
 	}
+	for (Piece temp: pieces){
+	    temp.updateMoves(board);
+	}
     }
 
     public void toBoard(){
@@ -55,18 +58,32 @@ public class Board {
 	System.out.println(boardStr);
     }
 
-    public void getPieces(){
-	for (int i = 0; i < pieces.size(); i++){
-	    Piece temp = pieces.get(i);
-	    System.out.println(temp);
-	    System.out.println(temp.updateMoves(board));
+
+    // getPieces returns every piece and all possible moves
+    // helps in testing not used for game
+    // public void getPieces(){
+    // 	for (int i = 0; i < pieces.size(); i++){
+    // 	    Piece temp = pieces.get(i);
+    // 	    System.out.println(temp);
+    // 	    System.out.println(temp.updateMoves(board));
+    // 	}
+    // }
+
+    public ArrayList<Piece> getPieces( String side ){
+	ArrayList<Piece> yours = new ArrayList<Piece>();
+    	for (int i = 0; i < pieces.size(); i++){
+    	    Piece temp = pieces.get(i);
+    	    if (temp.getSide().equals(side)){
+		yours.add(temp);
+	    }
 	}
+	return yours;
     }
 
     public static void main( String[] args ){
-	Board test = new Board();
-	test.toBoard();
-	test.getPieces();
+	// Board test = new Board();
+	// test.toBoard();
+	// test.getPieces();
     }
 
 }//end class
