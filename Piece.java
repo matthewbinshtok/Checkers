@@ -32,11 +32,6 @@ public class Piece {
 	return moves;
     }
 
-    //helper function to avoid getting offboard coordinates
-    public boolean onBoard( int row, int col ){
-	return (row >= 0 && col >= 0);
-    }
-
     public boolean validMove( String[][] setup, int row, int col, int i, int j){
 	//SCENARIO 1: Spot is 1 square away diagonally, and has no piece. WORKING
 	if (setup[(i)][(j)].equals("BLACK") && Math.abs(row-i) == 1 && Math.abs(col-j) == 1){
